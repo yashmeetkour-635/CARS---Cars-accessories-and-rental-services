@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CARSERV</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url("https://entrackr.com/storage/2023/12/Razorpay-cashfree.jpg");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #121212; /* Dark background color */
+        }
+
+        .form-container {
+            background-color: #333; /* Dark background color for the form container */
+            color: #fff; /* White text color */
+            border-radius: 100px; /* Rounded corners */
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Lighter box shadow */
+            max-width: 400px; /* Limit the width of the form container */
+        }
+
+        .razorpay-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+
+</head>
+<body>
+<form class="form-container text-center border border-light p-5" action="success" method="POST">
+        {% csrf_token %}
+        <!-- RAZORPAY INTEGRATION HERE -->
+<!--            <button onclick="toggleDarkMode()">Toggle Dark Mode</button>-->
+
+            <script src="https://checkout.razorpay.com/v1/checkout.js"
+                    data-key="rzp_test_PvM4GxK9MYlCUc"
+                    data-amount="{{payment.amount}}"
+                    data-currency="INR"
+                    data-order_id="{{payment.id}}"
+                    data-buttontext="Pay with Razorpay"
+                    data-name="Cars"
+                    data-description="Complete Ad Solution"
+                    data-image="https://www.shutterstock.com/image-vector/autoparts-gear-auto-piston-spark-600nw-1623130876.jpg"
+                    data-prefill.name="Jay Vaishy"
+                    data-prefill.email="zalakarmveerrsinh143@gmail.com"
+                    data-theme.color="#F37254">
+
+                    #this_is_for_dark-mode
+                    function toggleDarkMode()
+                    {
+                    document.body.classList.toggle('dark-mode');
+                    }
+            </script>
+</form>
+</body>
+</html>

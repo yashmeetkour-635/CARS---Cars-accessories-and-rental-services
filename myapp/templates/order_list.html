@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>CarServ - Car Repair HTML Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico'%}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/animate/animate.min.css'%}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
+    <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css'%}" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/style.css'%}" rel="stylesheet">
+
+    <style>
+        .order-card { margin-bottom: 15px; }
+        .car-img { width: 100px; height: auto; border-radius: 5px; }
+    </style>
+
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-light p-0">
+        <div class="row gx-0 d-none d-lg-flex">
+            <div class="col-lg-7 px-5 text-start">
+                <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                    <small class="fa fa-map-marker-alt text-primary me-2"></small>
+                    <small>123 Street, New York, USA</small>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center py-3">
+                    <small class="far fa-clock text-primary me-2"></small>
+                    <small>Mon - Fri : 09.00 AM - 09.00 PM</small>
+                </div>
+            </div>
+            <div class="col-lg-5 px-5 text-end">
+                <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                    <small class="fa fa-phone-alt text-primary me-2"></small>
+                    <small>+012 345 6789</small>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center">
+                    <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-sm-square bg-white text-primary me-0" href=""><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+    <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+<img src="{% static 'img/Car_logo.png' %}" alt="Car Logo" style="height: 175px;">    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+            <a href="/#" class="nav-item nav-link active">Home</a>
+            <a href="/about" class="nav-item nav-link">About</a>
+            <a href="/Service" class="nav-item nav-link">Services</a>
+            <a href="/rental" class="nav-item nav-link">Rental</a>
+            <a href="/error" class="nav-item nav-link">Accessories</a>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                <div class="dropdown-menu fade-up m-0">
+                    <a href="/booking" class="dropdown-item">Booking</a>
+                    <a href="/team" class="dropdown-item">Technicians</a>
+                    <a href="/testimonial" class="dropdown-item">Testimonial</a>
+                    <a href="/order_list" class="dropdown-item">Previous Orders</a>
+<!--                    <a href="/#" class="dropdown-item">Rental</a>-->
+                </div>
+            </div>
+            <a href="/contact" class="nav-item nav-link">Contact</a>
+        </div>
+
+        <div class="nav-item dropdown">
+                <div class="count-indicator">
+        <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">{{ request.session.Email }}<i class="fa fa-arrow-right ms-3"></i></a>
+                </div>
+                <div class="dropdown-menu fade-up m-0" aria-labelledby="navbarDropdown">
+                    <a href="/logout" class="dropdown-item">Logout</a>
+                </div>
+       </div>
+       </div>
+</nav>
+    <!-- Navbar End -->
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/carousel-bg-1.jpg);">
+        <div class="container-fluid page-header-inner py-5">
+            <div class="container text-center">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Previous Order</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center text-uppercase">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Previous Order</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Contact Start -->
+
+    <h2 class="mb-4" ALIGN="CENTER">Previous ACCESSORY</h2>
+
+    <!-- ACCESSORY ORDERS -->
+    {% for order in orders %}
+    <div class="card order-card">
+        <div class="card-header">
+            <strong>{{ order.full_name }}</strong> - ₹{{ order.total_price }}
+            <span class="text-muted float-end">{{ order.created_at|date:"F d, Y H:i" }}</span>
+        </div>
+        <div class="card-body">
+            <p><strong>Email:</strong> {{ order.email }}</p>
+            <p><strong>Phone:</strong> {{ order.phone }}</p>
+            <p><strong>Address:</strong> {{ order.address }}</p>
+
+            <!-- Toggle for Accessories -->
+            <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#order{{ order.id }}" aria-expanded="false">
+                View Ordered Accessories
+            </button>
+
+            <!-- Accessories Table -->
+            <div id="order{{ order.id }}" class="collapse mt-3">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in order.orderitem_set.all %}
+                        <tr>
+                            <td>{{ item.product.aname }}</td>
+                            <td>{{ item.quantity }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <!-- CAR RENTAL BOOKINGS -->
+    <h2 class="mt-5" ALIGN="CENTER">Car Rental Bookings</h2>
+
+    {% for booking in car_bookings %}
+    <div class="card order-card">
+        <div class="card-header">
+            <strong>{{ booking.uname }}</strong> - {{ booking.uemail }}
+            <span class="text-muted float-end">Booked on: {{ booking.DATE }}</span>
+        </div>
+        <div class="card-body">
+            <p><strong>Phone:</strong> {{ booking.phone_no }}</p>
+            <p><strong>State:</strong> {{ booking.state }}</p>
+            <p><strong>City:</strong> {{ booking.city }}</p>
+            <p><strong>Address:</strong> {{ booking.address }}</p>
+
+            <!-- Car Details -->
+            <div class="d-flex align-items-center">
+                {% if booking.img %}
+                    <img src="{{ booking.cid.img.url }}" class="car-img me-3" alt="Car Image">
+                {% endif %}
+                <p><strong>Car:</strong> {{ booking.cid.car_name }} - ₹{{ booking.cid.price }} per day</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+<h2 class="mt-5" ALIGN="CENTER">Service Bookings</h2>
+{% for service in service_orders %}
+<div class="card order-card mb-4">
+    <div class="card-header">
+        <strong>{{ service.service.title }}</strong>
+        <span class="text-muted float-end">{{ service.service.our_service.H_title }}</span>
+    </div>
+    <div class="card-body">
+        {% if service.service.image %}
+        <img src="{{ service.service.image.url }}" class="img-thumbnail mb-3" style="max-width: 150px;" alt="Service Image">
+        {% endif %}
+        <p><strong>Description:</strong></p>
+        <ul class="list-disc ps-4">
+            {% for line in service.service.des.splitlines %}
+                {% if line %}
+                <li>{{ line }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <p><strong>Booking Date:</strong> {{ service.date }}</p>
+        <p><strong>Special Request:</strong> {{ service.SREQUEST }}</p>
+    </div>
+</div>
+{% empty %}
+<p>No service bookings found.</p>
+{% endfor %}
+
+
+
+    <!-- Contact End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-light mb-4">Address</h4>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Nikol,Ahemdabad,Gujarat</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 75758 89706</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                <div class="d-flex pt-2">
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-light mb-4">Opening Hours</h4>
+                <h6 class="text-light">Monday - Friday:</h6>
+                <p class="mb-4">09.00 AM - 09.00 PM</p>
+                <h6 class="text-light">Saturday - Sunday:</h6>
+                <p class="mb-0">09.00 AM - 12.00 PM</p>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-light mb-4">Services</h4>
+                <a class="btn btn-link" href="">Diagnostic Test</a>
+                <a class="btn btn-link" href="">Engine Servicing</a>
+                <a class="btn btn-link" href="">Tires Replacement</a>
+                <a class="btn btn-link" href="">Oil Changing</a>
+                <a class="btn btn-link" href="">Vacuam Cleaning</a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-light mb-4">Newsletter</h4>
+                <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+<!--                <div class="position-relative mx-auto" style="max-width: 400px;">-->
+<!--                    <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">-->
+<!--                    <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp-->
+<!--                    </button>-->
+<!--                </div>-->
+                <div class="mt-3">
+<!--                    <a href="/order_list" class="btn btn-primary btn-lg w-100 mb-2">Previous Orders</a>-->
+<!--                    <a href="Accessories_book/{{i.id}}" class="btn btn-success btn-lg w-100">Book Now</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="copyright">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a class="border-bottom" href="#">CARS</a>, All Right Reserved.
+
+                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                    Designed By <a class="border-bottom" href="https://htmlcodex.com">Jay Vaishy , Shah Disha</a>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="footer-menu">
+                        <a href="/#">Home</a>
+                        <a href="/error">Accessories</a>
+                        <a href="/rental">Rental</a>
+                        <a href="/Service">Services</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/wow/wow.min.js'%}"></script>
+    <script src="{% static 'lib/easing/easing.min.js'%}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js'%}"></script>
+    <script src="{% static 'lib/counterup/counterup.min.js'%}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js'%}"></script>
+    <script src="{% static 'lib/tempusdominus/js/moment.min.js'%}"></script>
+    <script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js'%}"></script>
+    <script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js'%}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js'%}"></script>
+</body>
+
+</html>
